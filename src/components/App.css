@@ -1,4 +1,47 @@
 :local(.app) {
 
+  header {
+    text-align: center;
+    margin: 2% 0% 2% 0%;
+  }
+
+  h1, h2, h3, h4 {
+    margin: 0px;
+  }
+  
+  img {
+    width: 60%;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  li {
+    list-style: none;
+    text-align: center;
+    width: 150px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(242, 234, 234);
+  }
+
+  p {
+    margin: 0px;
+  }
+
+  .favorite {
+    text-align: center;
+  }
+
+  .favorite-pokemon {
+    text-align: center;
+    width: 150px;
+    margin: auto;
+    padding: 10px;
+    background-color: rgb(242, 234, 234);
+  }
 }
 

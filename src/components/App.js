@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import pokedex from '../pokedex';
 import Pokedex from './Pokedex';
+import styles from './App.css';
 
 class App extends Component {
 
@@ -9,29 +10,36 @@ class App extends Component {
     favorite: null
   };
 
-  // favorite passed in
-  handleSelect = () => {
-    console.log('you selected your fav pokemon!');
+  handleSelect = favorite => {
+    this.setState({ favorite });
   };
 
+
   render() {
-    const { pokedex } = this.state;
+    const { pokedex, favorite } = this.state;
 
     return (
-      <div>
-        Hello React Quiz! {pokedex.length}
+      <div className={styles.app}>
+        <header>
+          <h1>Pick Your Favorite Pok&eacute;mon!</h1>
+          <h3>Poked&eacute;x: {pokedex.length}</h3>
+        </header>
 
         <section className="favorite">
-          {pokedex
-            ? <div><img src={pokedex.url_image}></img>{pokedex.pokemon}</div>
-            : <p>please select your favorite pokemon!</p>
+          {favorite
+            ? <div className="favorite-pokemon">
+              <h4>Your Favorite Pok&eacute;mon is:</h4>
+              <h2 style={{ color: `${favorite.color_1}` }}>{favorite.pokemon}</h2>
+              <img src={favorite.url_image}></img>
+            </div>
+            : <p>Please select your favorite pok&eacute;mon!</p>
           }
         </section>
 
         <section>
           {pokedex &&
             <Fragment>
-              <Pokedex onSelect={this.handleSelect} pokemon={pokedex}/>
+              <Pokedex onSelect={this.handleSelect} pokedex={pokedex}/>
             </Fragment>
           }
         </section>  
