@@ -10,13 +10,13 @@ class Pokedex extends Component {
   };
   
   render() { 
-    const { pokedex } = this.props;
+    const { pokedex, onSelect } = this.props;
     if(!pokedex) return null;
 
     return (
       <ul>
         {pokedex.map(pokemon => {
-          return <Pokemon key={pokemon.id} pokemon={pokemon}/>;
+          return <Pokemon key={pokemon.id} pokemon={pokemon} onSelect={onSelect}/>;
         })}
       </ul>
     );
